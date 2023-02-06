@@ -107,11 +107,11 @@ const Table = (props) => {
 										</td>
 										<td className="px-6 py-4">{s.name}</td>
 										<td className="px-6 py-4">{s.email}</td>
-										<td className="px-6 py-4">
+										<th className="px-6 py-4">
 											{deleting?<i className="fas fa-spin fa-spinner"></i>:<button onClick={handleDelete} id={s.id} className="font-medium text-blue-600 dark:text-blue-500 hover:underline">
 												Delete
 											</button>}
-										</td>
+										</th>
 									</tr>
 								))}
 							</tbody>
