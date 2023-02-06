@@ -4,9 +4,10 @@ import axios from "axios";
 const Table = (props) => {
 	const [data, setData] = useState([]);
 	const [loading, setLoading] = useState(false);
+	const [deleting, setDeleting] = useState(false);
 
 	const handleDelete = (e) => {
-		setLoading(true)
+		setDeleting(true)
 		axios.post(`${props.baseUrl}/sublist/delete?id=${e.target.id}`, {},{
 			headers: {
 				Authorization: localStorage.getItem("token")
@@ -16,12 +17,12 @@ const Table = (props) => {
 			console.log(res)
 			console.log("Entry deleted from database")
 			setData(data.filter((row) => row.id !== parseInt(e.target.id)))
-			setLoading(false)
+			setDeleting(false)
 		})
 		.catch((err) => {
 			console.log(err)
 			console.log("Delete operation failed")
-			setLoading(false)
+			setDeleting(false)
 		})
 
 	}
@@ -107,9 +108,9 @@ const Table = (props) => {
 										<td className="px-6 py-4">{s.name}</td>
 										<td className="px-6 py-4">{s.email}</td>
 										<td className="px-6 py-4">
-											<button onClick={handleDelete} id={s.id} className="font-medium text-blue-600 dark:text-blue-500 hover:underline">
+											{deleting?<i className="fas fa-spin fa-spinner"></i>:<button onClick={handleDelete} id={s.id} className="font-medium text-blue-600 dark:text-blue-500 hover:underline">
 												Delete
-											</button>
+											</button>}
 										</td>
 									</tr>
 								))}
