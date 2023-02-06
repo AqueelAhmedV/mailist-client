@@ -11,7 +11,7 @@ function App() {
   const [errors, setErrors] = useState([]);
   
 
-  const baseUrl = process.env.API_BASE_URL;
+  const baseUrl = process.env.REACT_APP_API_BASE_URL;
   console.log(`baseUrl is ${baseUrl}`)
 
   useEffect(() => {
