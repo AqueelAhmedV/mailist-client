@@ -6,6 +6,7 @@ const Table = (props) => {
 	const [loading, setLoading] = useState(false);
 
 	const handleDelete = (e) => {
+		setLoading(true)
 		axios.post(`${props.baseUrl}/sublist/delete?id=${e.target.id}`, {},{
 			headers: {
 				Authorization: localStorage.getItem("token")
@@ -15,10 +16,12 @@ const Table = (props) => {
 			console.log(res)
 			console.log("Entry deleted from database")
 			setData(data.filter((row) => row.id !== parseInt(e.target.id)))
+			setLoading(false)
 		})
 		.catch((err) => {
 			console.log(err)
 			console.log("Delete operation failed")
+			setLoading(false)
 		})
 
 	}
