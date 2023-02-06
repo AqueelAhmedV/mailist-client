@@ -11,8 +11,8 @@ function App() {
   const [errors, setErrors] = useState([]);
   
 
-  const baseUrl = process.env.REACT_APP_API_BASE_URL;
-  console.log(`baseUrl is ${baseUrl}`)
+  const baseUrl = "https://mailist.onrender.com/api/admin";
+  // console.log(`baseUrl is ${baseUrl}`)
 
   useEffect(() => {
     if(localStorage.getItem('token')){
