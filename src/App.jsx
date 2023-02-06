@@ -12,6 +12,7 @@ function App() {
   
 
   const baseUrl = process.env.API_BASE_URL;
+  console.log(`baseUrl is ${baseUrl}`)
 
   useEffect(() => {
     if(localStorage.getItem('token')){
