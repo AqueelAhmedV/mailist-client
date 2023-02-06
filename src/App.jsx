@@ -60,7 +60,7 @@ function App() {
               className="bg-red-100 rounded border-red-500 text-red-700 px-3 py-2 mb-2"
               role="alert"
             >
-              <p className="font-bold text-sm">{errors[0].statusText}</p>
+              
               <p className="text-xs">
                 {errors[0].data.msg}
               </p>
