@@ -11,7 +11,7 @@ function App() {
   const [errors, setErrors] = useState([]);
   
 
-  const baseUrl = "http://localhost:5000/api/admin";
+  const baseUrl = process.env.API_BASE_URL;
 
   useEffect(() => {
     if(localStorage.getItem('token')){
